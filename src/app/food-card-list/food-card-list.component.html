@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<div class="container space-y-7">
+  <div class="mt-7 mx-auto lg:w-2/3">
+    <form class="flex items-center w-full h-[50px]">
+      <div class="grow h-full">
+        <input
+        type="text"
+        #filterInput
+          class="px-6 py-2 w-full h-full border border-slate-200 focus:outline-green-500 border-r-0 rounded-tl-3xl rounded-bl-3xl shadow-md text-gray-500"
+          
+          placeholder="Rechercher un plat par nom"
+        />
+      </div>
+      <div class="bg-green-500 hover:bg-green-600 h-full rounded-tr-3xl rounded-br-3xl shadow-md">
+        <button (click)="filterResults(filterInput.value)" class="w-full h-full px-4 text-white text-2xl" type="button">
+          <span>
+            <ng-icon name="ionSearch"></ng-icon>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-6"
+  >
+    <app-food-card
+      *ngFor="let foodCardItem of foodCardFilterList"
+      [foodCard]="foodCardItem"
+    />
+  </div>
+</div>
